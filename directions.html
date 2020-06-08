@@ -375,15 +375,15 @@ summary {
 <p>The goals of this analysis are to:</p>
 <ol style="list-style-type: decimal">
 <li>understand how customer attributes influence a customer’s decision to purchase a Cisco DNA Center License, and</li>
-<li>predict the probability of a DNA Center license purchase for a holdout sample of customers (available in holdout.csv)</li>
+<li>predict the probability of a DNA Center license purchase for a holdout sample of customers (available in testing.csv)</li>
 </ol>
 <p>Prior to assessing the main goals above, you will need to perform some data cleanup and exploratory data anlaysis.</p>
 </div>
 <div id="data-description" class="section level2">
 <h2>Data Description</h2>
 <p>To preserve the confidentiality of Cisco customer data, the data for this project are simulated. However, fields and values are created to be similar to real Cisco customer data.</p>
-<div id="data-set-1-dnac-customer-bookings.csv" class="section level3">
-<h3>Data Set 1: dnac-customer-bookings.csv</h3>
+<div id="data-set-1-training.csv" class="section level3">
+<h3>Data Set 1: training.csv</h3>
 <p>Field Descriptions:</p>
 <p><strong>ID Variable</strong><br />
 cust - a simulated customer ID (does not link to any real Cisco customer data)</p>
@@ -396,23 +396,23 @@ bookings - total customer bookings (across all products) with Cisco in FY 2018</
 <p><strong>Outcome</strong><br />
 purchase - a TRUE/FALSE indicator of whether the customer purchased a DNA-Center License in FY 2019 (not real values)</p>
 </div>
-<div id="data-set-2-holdout.csv" class="section level3">
-<h3>Data Set 2: holdout.csv</h3>
-<p>The holdout.csv file contains a smaller holdout sample of Cisco customers. For these customers, we do not know whether a Cisco DNA-Center license was purchased. The fields are exactly the same as in dnac-customer-bookings.csv, except the outcome field (purchase), is not included.</p>
+<div id="data-set-2-testing.csv" class="section level3">
+<h3>Data Set 2: testing.csv</h3>
+<p>The testing.csv file contains a smaller holdout sample of Cisco customers. For these customers, we do not know whether a Cisco DNA-Center license was purchased. The fields are exactly the same as in training.csv, except the outcome field (purchase), is not included.</p>
 </div>
 </div>
 <div id="analysis-questions" class="section level2">
 <h2>Analysis Questions</h2>
 <p>The following questions should be answered in a Jupyter Notebook or an RMarkdown document. Please render code and results to an html file for submission (see Submission Instructions below). For questions 2-5, make specific claims about your findings that are backed up with evidence. Interpetations should be specific to the model and output instead of vague claims like “customers with higher bookings tend to purchase more DNA-C units”.</p>
 <ul>
-<li>Q1: Load dnac-customer-bookings.csv into Python or R<br />
+<li>Q1: Load training.csv into Python or R<br />
 </li>
 <li>Q2: Explore the categorical predictors (segment, vertical, sub_vertical, country) for data quality issues. Using your best judgment given the data and Field Descriptions, fix these data quality issues. Provide your code and a text summary of the data quality issues in your report.<br />
 </li>
 <li>Q3: Using graphical analysis and/or numeric summaries, explore the relationship between the 5 predictors (segment, vertical, sub_vertical, country, and bookings) and the outcome of interest (purchase).<br />
 </li>
 <li>Q4: Use a statistical modeling method or machine learning algorithm of your choice to estimate the effects of the predictors on the outcome. When choosing a modeling approach, select a model that will yield a probability of purchase (see Q5 below) rather than an approach that yields only a binary classification. Use output from your model to describe the effects of each predictor on purchase. Please use precise interpretations.</li>
-<li>Q5: Using your model or algorithm to estimate the probability of purchase for each customer in holdout.csv. Write a .csv file with file name “ds-associate-firstname-lastname-predictions.csv” that will be a CSV containing two columns. The first column will be the customer ID found in holdout.csv. The second column should be named prob_dnac_purchase and be a value strictly between 0 and 1.</li>
+<li>Q5: Using your model or algorithm to estimate the probability of purchase for each customer in testing.csv. Write a .csv file with file name “ds-associate-firstname-lastname-predictions.csv” that will be a CSV containing two columns. The first column will be the customer ID found in testing.csv. The second column should be named prob_dnac_purchase and be a value strictly between 0 and 1.</li>
 </ul>
 </div>
 <div id="submission-instructions" class="section level2">
@@ -424,8 +424,8 @@ purchase - a TRUE/FALSE indicator of whether the customer purchased a DNA-Center
 <li>the output of those questions</li>
 </ol>
 <p>For ease of assessment, please interweave code, a text summary of your analysis, and output.</p>
-<p>File 2: “ds-associate-firstname-lastname-predictions.csv” will be a CSV containing two columns. The first column will be the customer ID found in holdout.csv. The second column should be named prob_dnac_purchase and be a value strictly between 0 and 1. The probability should be generated from the model in Q5 above and the code for generating this prediction file should be available in your File 1 html file submission.</p>
-<p>Your file 2 submission should have the exact same number of customers (n=942) as holdout.csv</p>
+<p>File 2: “ds-associate-firstname-lastname-predictions.csv” will be a CSV containing two columns. The first column will be the customer ID found in testing.csv. The second column should be named prob_dnac_purchase and be a value strictly between 0 and 1. The probability should be generated from the model in Q5 above and the code for generating this prediction file should be available in your File 1 html file submission.</p>
+<p>Your file 2 submission should have the exact same number of customers (n=942) as testing.csv</p>
 </div>
 </div>
 
