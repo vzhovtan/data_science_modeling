@@ -1,4 +1,4 @@
-## DS modeling exam preparation
+### Data Science modeling exam preparation
 
 * Create and compare supervised and unsupervised models
 * Conduct ethical model validation and evaluation
